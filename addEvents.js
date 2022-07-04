@@ -99,7 +99,7 @@ async function main() {
     const listingCancelledOpts = {
         chainId: moralisChainId,
         sync_historical: true,
-        topic: "ListingCancelled(address,address,uint256,uint256)",
+        topic: "ListingCancelled(address,address,uint256)",
         abi: {
             anonymous: false,
             inputs: [
@@ -132,17 +132,17 @@ async function main() {
     const listedResponse = await Moralis.Cloud.run("watchContractEvent", itemListedOpts, {
         useMasterKey: true,
     });
-    console.log("Listed response ", listedResponse.success);
+    console.log("Listed response ", listedResponse);
 
     const boughtResponse = await Moralis.Cloud.run("watchContractEvent", itemBoughtOpts, {
         useMasterKey: true,
     });
-    console.log("Bought response ", boughtResponse.success);
+    console.log("Bought response ", boughtResponse);
 
     const cancelledResponse = await Moralis.Cloud.run("watchContractEvent", listingCancelledOpts, {
         useMasterKey: true,
     });
-    console.log("Cancelled response ", cancelledResponse.success);
+    console.log("Cancelled response ", cancelledResponse);
 }
 
 main()
