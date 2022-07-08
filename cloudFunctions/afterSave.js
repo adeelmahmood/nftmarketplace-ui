@@ -1,6 +1,5 @@
 Moralis.Cloud.afterSave("ItemListed", async (request) => {
     const logger = Moralis.Cloud.getLogger();
-    logger.info(`ItemListed event afterSave with confirmed: ${request.object.get("confirmed")}`);
     const confirmed = request.object.get("confirmed");
     if (confirmed) {
         const ActiveItem = Moralis.Object.extend("ActiveItem");
@@ -38,9 +37,6 @@ Moralis.Cloud.afterSave("ItemListed", async (request) => {
 Moralis.Cloud.afterSave("ListingCancelled", async (request) => {
     const logger = Moralis.Cloud.getLogger();
     const confirmed = request.object.get("confirmed");
-    logger.info(
-        `ListingCancelled event afterSave with confirmed: ${request.object.get("confirmed")}`
-    );
     if (confirmed) {
         const ActiveItem = Moralis.Object.extend("ActiveItem");
 
@@ -67,7 +63,6 @@ Moralis.Cloud.afterSave("ListingCancelled", async (request) => {
 Moralis.Cloud.afterSave("ItemBought", async (request) => {
     const logger = Moralis.Cloud.getLogger();
     const confirmed = request.object.get("confirmed");
-    logger.info(`ItemBought event afterSave with confirmed: ${request.object.get("confirmed")}`);
     if (confirmed) {
         const ActiveItem = Moralis.Object.extend("ActiveItem");
 
